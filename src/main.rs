@@ -7,7 +7,8 @@ fn main() {
     let socket = context.socket(zmq::REQ).unwrap();
 
     let server_host = env::var("ZMQ_SERVER_HOST").unwrap();
-    let addr = format!("tcp://{}:9702", server_host);
+    let addr = format!("tcp://{}", server_host);
+    println!("Use server host and port: {}", &addr);
 
     let socks_proxy = env::var("ZMQ_SOCKS_PROXY");
     if socks_proxy.is_ok() {
